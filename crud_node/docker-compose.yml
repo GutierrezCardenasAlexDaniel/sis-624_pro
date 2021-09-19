@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo
+    container_name: mongo-ejemplo
+  nodeweb:
+    environment: 
+      BASE_IP: "mongodb"
+    build: .
+    image: node-imagen
+    container_name: node-ejemplo
+    depends_on: 
+      - mongodb
+    ports: 
+      - 3000:3000

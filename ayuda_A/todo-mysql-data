@@ -1,0 +1,13 @@
+CREATE DATABASE IF NOT EXISTS test;
+USE test; 
+CREATE TABLE users(
+	id_usuario int(100) NOT NULL auto_increment,
+	nombres varchar(100) NOT NULL,
+	apellidos varchar(100) NOT NULL,
+	email varchar(50) NOT NULL,
+	monto int(10) NOT NULL,
+	grupo int(5) NOT NULL,
+	telefono int(8) NOT NULL,	
+	observacion varchar(100) NOT NULL,
+	PRIMARY KEY (id_usuario)
+);

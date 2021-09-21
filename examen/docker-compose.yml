@@ -2,16 +2,17 @@ version: '3.8'
 services:
     mysql:
         image: 'mysql:5.7'
-        container_name: nombre
+        container_name: db_pro
         working_dir: /application
         env_file:
             - .env
         volumes:
             - '.:/application'
         ports:
-            - '3360:3306'
+            - '3306:3306'
 
     webserver:
+        container_name: php_Server
         build:
             context: .
             args:

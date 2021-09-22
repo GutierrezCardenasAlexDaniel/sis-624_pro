@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>FORMULARIO DE REGISTRO</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+<?php
+$link = mysql_connect new mysqli('mysql', $_ENV['MYSQL_USER'], $_ENV['MYSQL_PASSWORD'], $_ENV['MYSQL_DATABASE']/*, 3306 */);
+   if(!$link){
+      echo 'no se pudo' .mysql_error();
+   }else{
+      $base = mysql_select_db('mysql_data' , $link);
+      if(!$base){
+         echo 'Nose encontro la base de datos' .mysql_error();
+      }else{
+      $sql = "SELECT * FROM estudiante";
+      $ejecutar_sentencia= mysql_query($sql);
+      if(!$ejecuta_sentencia){
+          echo 'hay un error en la sentecnia de sql' .$sql;
+      }else{
+           $lista_estudiantes =mysql_fecth_array($ejecucion_sentencia);
+      }
+   }
+}
+?>
+    <h1>FORMULARIO DE REGISTRO</h1>
+</body>
+</html>
